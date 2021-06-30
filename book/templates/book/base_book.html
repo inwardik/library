@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Book title
+{% endblock %}
+
+{% block base_content %}
+    {% include 'book/includes/nav.html' %}
+    {% include 'book/includes/header.html' %}
+    <section class="py-5">
+        <div class="container">
+            <div class="col-12 text-center">
+                <h2 class="font-weight-light text-secondary">
+                    {% block inner_title %}
+                        Books list
+                    {% endblock %}
+                </h2>
+            </div>
+            {% block content %}
+                base_content
+            {% endblock %}
+            <hr>
+            <a href="{% url 'create_book' %}">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Create book</button>
+            </a>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'order/base_order.html' %}
+
+{% block title %}
+    Order
+{% endblock %}
+
+{% block content %}
+    {% include 'order/includes/header.html' %}
+            <form method="post">
+                {% csrf_token %}
+                <label>User: <select name="user">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}({{ user.id }})</option>
+                    {% endfor %}
+                </select><br>
+                </label>
+                <br>
+                <label>Book: <select name="book">
+                    {% for book in books %}
+                        <option value="{{ book.id }}">{{ book.name }} ({{ book.id }})</option>
+                    {% endfor %}
+                </select><br>
+                </label>
+                <br>
+                <label>Plated_end_at: <input type="date" name="plated_end_at" value="{{ plated_date }}"></label><br>
+                <input type="submit">
+            </form>
+{% endblock %}

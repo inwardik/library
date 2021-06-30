@@ -1,0 +1,48 @@
+{% extends "author/base_author.html" %}
+{% block title %}
+    Authors
+{% endblock %}
+
+{% block inner_title %}
+    Authors list
+{% endblock %}
+
+{% block content %}
+    {% if authors %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Patronymic</th>
+                <th scope="col">Del</th>
+                <th scope="col">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.id }}</td>
+                    <td>{{ author.name }}</td>
+                    <td>{{ author.surname }}</td>
+                    <td>{{ author.patronymic }}</td>
+                    <td>
+                        <a href="delete/{{ author.id }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+                    </td>
+                    <td>
+                        <a href="update/{{ author.id }}"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <div class="col-12 text-center">
+            <h2 class="font-weight-light">
+                There is no Authors!
+            </h2>
+        </div>
+    {% endif %}
+{% endblock %}

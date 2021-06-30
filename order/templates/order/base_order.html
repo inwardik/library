@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+User title
+{% endblock %}
+
+{% block base_content %}
+    {% include 'order/includes/nav.html' %}
+    {% include 'order/includes/header.html' %}
+    <section class="py-5">
+        <div class="container">
+            <div class="col-12 text-center">
+                <h2 class="font-weight-light text-secondary">
+                {% block inner_title %}
+                    Orders list
+                {% endblock %}
+                </h2>
+            </div>
+            {% block content %}
+            base_content
+            {% endblock %}
+            <hr>
+            <a href="{% url 'create_order' %}"><button type="button" class="btn btn-sm btn-outline-secondary">Create order</button></a>
+        </div>
+    </section>
+
+{% endblock %}

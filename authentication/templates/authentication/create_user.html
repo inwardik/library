@@ -1,0 +1,17 @@
+{% extends 'authentication/base_auth.html' %}
+
+{% block title %}
+    authentication title
+{% endblock %}
+
+{% block content %}
+            <form method="post">
+                {% csrf_token %}
+                <label>first_name: <input type="text" name="first_name"></label><br>
+                <label>last_name: <input type="text" name="last_name"></label><br>
+                <label>middle_name: <input type="text" name="middle_name"></label><br>
+                <label>email: <input type="text" name="email"></label><br>
+                <label>password: <input type="password" name="password"></label><br>
+                <input type="submit">
+            </form>
+{% endblock %}

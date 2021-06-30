@@ -1,0 +1,18 @@
+{% extends 'order/base_order.html' %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block content %}
+            <form method="post">
+                {% csrf_token %}
+                <label>Plated_end_at: <input type="date" name="plated_end_at" value="{{ order.plated_end_at|date:"Y-m-d" }}"></label><br>
+                </select><br>
+                </label>
+                <label>End_at: <input type="date" name="end_at" value="{{ order.end_at|date:"Y-m-d" }}"></label><br>
+                </select><br>
+                </label>
+                <input type="submit">
+            </form>
+{% endblock %}

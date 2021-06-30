@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Author title
+{% endblock %}
+
+{% block base_content %}
+    {% include 'author/includes/nav.html' %}
+    {% include 'author/includes/header.html' %}
+    <section class="py-5">
+        <div class="container">
+            <div class="col-12 text-center">
+                <h2 class="font-weight-light text-secondary">
+                {% block inner_title %}
+                    Users list
+                {% endblock %}
+                </h2>
+            </div>
+            {% block content %}
+            base_content
+            {% endblock %}
+            <hr>
+            <a href="{% url 'create_author' %}"><button type="button" class="btn btn-sm btn-outline-secondary">Create author</button></a>
+        </div>
+    </section>
+
+{% endblock %}
